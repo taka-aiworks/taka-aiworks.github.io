@@ -10,6 +10,7 @@
       padding: 0;
       text-align: center;
       background-color: #fefefe;
+      font-family: sans-serif;
     }
 
     img {
@@ -27,19 +28,38 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    .spacer {
+      height: 100vh;
+    }
+
+    section {
+      padding: 50px 20px;
+    }
   </style>
 </head>
 <body>
 
+  <!-- 最初の画像 -->
   <img src="your-image.png" alt="カフェのLP" class="fade-in">
 
-  <h2 class="fade-in">おすすめメニュー</h2>
-<p class="fade-in">自家焙煎のコーヒーと焼き菓子をどうぞ。</p>
+  <!-- スクロールさせるためのスペース -->
+  <div class="spacer"></div>
 
-<div class="fade-in">
-  <img src="your-image.png" alt="ダミー画像">
-</div>
+  <!-- ここからスクロール後に表示される -->
+  <section class="fade-in">
+    <h2>おすすめメニュー</h2>
+    <p>自家焙煎のコーヒーと焼き菓子をどうぞ。</p>
+  </section>
 
+  <div class="spacer"></div>
+
+  <section class="fade-in">
+    <h2>私たちのこだわり</h2>
+    <p>素材と手作りにこだわった、やさしい味わいです。</p>
+  </section>
+
+  <!-- アニメーションスクリプト -->
   <script>
     window.addEventListener('scroll', function () {
       const elements = document.querySelectorAll('.fade-in');
@@ -51,6 +71,6 @@
       });
     });
   </script>
-  
+
 </body>
 </html>

@@ -12,54 +12,33 @@
       background-color: #fefefe;
       font-family: sans-serif;
     }
-
     img {
       max-width: 100%;
       height: auto;
+      display: block;
+      margin: 0 auto;
     }
-
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
       transition: all 0.6s ease;
     }
-
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
-    }
-
-    .spacer {
-      height: 100vh;
-    }
-
-    section {
-      padding: 50px 20px;
     }
   </style>
 </head>
 <body>
 
-  <!-- 最初の画像 -->
-  <img src="your-image.png" alt="カフェのLP" class="fade-in">
+  <!-- 最初の画像は最初から表示 -->
+  <img src="your-image.png" alt="カフェのLP" class="fade-in visible">
 
-  <!-- スクロールさせるためのスペース -->
-  <div class="spacer"></div>
+  <!-- 他の画像やコンテンツが続くなら fade-in クラスのみを使用 -->
+  <!-- 例:
+  <img src="menu.png" alt="メニュー画像" class="fade-in">
+  -->
 
-  <!-- ここからスクロール後に表示される -->
-  <section class="fade-in">
-    <h2>おすすめメニュー</h2>
-    <p>自家焙煎のコーヒーと焼き菓子をどうぞ。</p>
-  </section>
-
-  <div class="spacer"></div>
-
-  <section class="fade-in">
-    <h2>私たちのこだわり</h2>
-    <p>素材と手作りにこだわった、やさしい味わいです。</p>
-  </section>
-
-  <!-- アニメーションスクリプト -->
   <script>
     window.addEventListener('scroll', function () {
       const elements = document.querySelectorAll('.fade-in');

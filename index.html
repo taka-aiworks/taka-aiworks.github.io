@@ -5,6 +5,9 @@
   <title>カフェのLP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       padding: 0;
@@ -27,37 +30,32 @@
       opacity: 1;
       transform: translateY(0);
     }
-    html {
-  scroll-behavior: smooth;
-}
-.btn {
-  display: inline-block;
-  margin: 30px auto;
-  padding: 12px 24px;
-  background-color: #6b4e16;
-  color: #fff;
-  font-size: 16px;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-.btn:hover {
-  background-color: #8b6626;
-}
-section#menu {
-  padding: 60px 20px;
-}
+    .btn {
+      display: inline-block;
+      margin: 30px auto;
+      padding: 12px 24px;
+      background-color: #6b4e16;
+      color: #fff;
+      font-size: 16px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #8b6626;
+    }
+    section#menu {
+      padding: 60px 20px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- 最初の画像は最初から表示 -->
+  <!-- ヒーロー画像 -->
   <img src="your-image.png" alt="カフェのLP" class="fade-in visible">
 
-  <!-- 他の画像やコンテンツが続くなら fade-in クラスのみを使用 -->
-  <!-- 例:
-  <img src="menu.png" alt="メニュー画像" class="fade-in">
-  -->
+  <!-- スクロールボタン -->
+  <a href="#menu" class="btn fade-in">メニューを見る</a>
 
   <script>
     window.addEventListener('scroll', function () {
@@ -70,14 +68,15 @@ section#menu {
       });
     });
   </script>
-<!-- ダミーでスクロール距離を作る -->
-<div style="height: 800px;"></div>
 
-<!-- スクロール先 -->
-<section id="menu">
-  <h2>メニュー</h2>
-  <p>おすすめのドリンクやフードを紹介するセクション</p>
-</section>
-  
+  <!-- ダミーでスクロール距離を作る -->
+  <div style="height: 800px;"></div>
+
+  <!-- スクロール先 -->
+  <section id="menu">
+    <h2>メニュー</h2>
+    <p>おすすめのドリンクやフードを紹介するセクション</p>
+  </section>
+
 </body>
 </html>

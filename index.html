@@ -4,14 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>カフェのLP</title>
-
-  <!-- フォント -->
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
-
   <style>
     body {
       margin: 0;
       font-family: 'Zen Maru Gothic', sans-serif;
+      overflow-x: hidden; /* 横スクロール防止 */
     }
 
     .hero {
@@ -26,18 +24,18 @@
       position: absolute;
       top: 0;
       left: 0;
-      /* width/height は JSで制御 */
+      /* width/height は JS で制御 */
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ ヒーロー画像エリア -->
+  <!-- ✅ ヒーロー画像のみ -->
   <div class="hero">
     <img id="hero-image" src="your-image.png" alt="カフェの画像" />
   </div>
 
-  <!-- ✅ JavaScript：アスペクト比調整 -->
+  <!-- ✅ JavaScriptで画像サイズ調整 -->
   <script>
     function adjustHeroImage() {
       const img = document.getElementById('hero-image');
@@ -45,11 +43,13 @@
       const windowAspect = window.innerWidth / window.innerHeight;
 
       if (aspectRatio > windowAspect) {
-        img.style.width = '100%';
-        img.style.height = 'auto';
-      } else {
+        // 横が広い → 高さを合わせて横は自動
+        img.style.height = '100vh';
         img.style.width = 'auto';
-        img.style.height = '100%';
+      } else {
+        // 縦が広い → 横を合わせて高さは自動
+        img.style.width = '100vw';
+        img.style.height = 'auto';
       }
     }
 

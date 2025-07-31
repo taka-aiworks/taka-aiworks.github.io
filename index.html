@@ -12,9 +12,15 @@
 
     .hero {
       position: relative;
-      width: 100%;
+      width: 100vw;
       height: 100vh; /* ← 高さを画面全体に */
       overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f9f6f2; /* 画像の上下に自然な余白があるならこれでOK */
+      padding: 0; /* 念のため */
+      margin: 0;
     }
 
     .hero img {

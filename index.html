@@ -3,39 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ヒーロー画像LP</title>
+  <title>カフェLP</title>
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
-    body, html {
-      width: 100%;
-      height: 100%;
-    }
-
-    .hero {
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      background-color: #000;
+    body {
+      font-family: sans-serif;
+      background-color: #fff;
+      color: #333;
     }
 
     .hero img {
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: contain;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .main-content img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <img src="your-image.png" alt="ヒーロー画像" />
-  </div>
+
+  <!-- ✅ ヒーロー画像のみ端末別に切り替え -->
+  <section class="hero">
+    <picture>
+      <source srcset="hero-mobile.png" media="(max-width: 600px)">
+      <source srcset="hero-tablet.png" media="(max-width: 1024px)">
+      <img src="hero-desktop.png" alt="ヒーロー画像">
+    </picture>
+  </section>
+
+  <!-- ✅ その他は1枚画像で -->
+  <section class="main-content">
+    <img src="content.png" alt="メインコンテンツ画像">
+  </section>
+
 </body>
 </html>

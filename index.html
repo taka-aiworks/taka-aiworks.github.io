@@ -5,13 +5,18 @@
   <title>カフェのLP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
       margin: 0;
       padding: 0;
       font-family: sans-serif;
-      background-color: #fefefe;
+      height: 100%;
     }
 
+    /* ✅ 画面ぴったりのヒーローセクション */
     .hero {
       position: relative;
       width: 100%;
@@ -20,17 +25,13 @@
     }
 
     .hero img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center; /* 💡中心にフォーカス（必要に応じて top もあり） */
-      display: block;
-    }
-
-    @supports not (aspect-ratio: 16 / 9) {
-      .hero {
-        height: calc(100vw * 9 / 16); /* ⭐ 比率で高さ算出 */
-      }
+      object-fit: cover; /* ⭐全体表示にフィット */
+      object-position: center;
     }
 
     .btn-hero {
@@ -44,7 +45,6 @@
       font-size: 16px;
       text-decoration: none;
       border-radius: 5px;
-      transition: background-color 0.3s ease;
       z-index: 10;
     }
 
@@ -59,64 +59,26 @@
       }
     }
 
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+    section#menu {
+      padding: 80px 20px;
+      text-align: center;
     }
 
     html {
       scroll-behavior: smooth;
     }
-
-    section#menu {
-      padding: 80px 20px;
-      text-align: center;
-    }
   </style>
 </head>
 <body>
 
-  <!-- ✅ ヒーロー画像＋ボタン -->
+  <!-- ✅ ヒーローセクション -->
   <div class="hero">
     <img src="your-image.png" alt="カフェのLP">
     <a href="#menu" class="btn-hero">メニューを見る</a>
   </div>
 
-  <!-- ✅ JSでheroの高さ調整（iOS対策） -->
-  <script>
-    function setHeroHeight() {
-      const hero = document.querySelector('.hero');
-      if (hero) {
-        const width = hero.offsetWidth;
-        hero.style.height = (width * 9 / 16) + 'px';
-      }
-    }
-
-    window.addEventListener('load', setHeroHeight);
-    window.addEventListener('resize', setHeroHeight);
-  </script>
-
-  <!-- ✅ fade-in スクリプト -->
-  <script>
-    window.addEventListener('scroll', function () {
-      const elements = document.querySelectorAll('.fade-in');
-      elements.forEach(function (el) {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          el.classList.add('visible');
-        }
-      });
-    });
-  </script>
-
   <!-- ✅ メニューセクション -->
-  <section id="menu" class="fade-in">
+  <section id="menu">
     <h2>メニュー</h2>
     <p>おすすめのドリンクやフードを紹介するセクション</p>
   </section>

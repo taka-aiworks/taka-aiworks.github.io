@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>カフェのLP</title>
+
+  <!-- フォント -->
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
@@ -16,32 +19,25 @@
       width: 100vw;
       height: 100vh;
       overflow: hidden;
+      background-color: #f9f6f2;
     }
 
     .hero img {
       position: absolute;
       top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 100vh;
-      object-fit: contain;
-      max-width: none;
-    }
-
-    section#menu {
-      padding: 80px 20px;
-      text-align: center;
+      left: 0;
+      /* width/height は JSで制御 */
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ ヒーロー画像のみ -->
+  <!-- ✅ ヒーロー画像エリア -->
   <div class="hero">
     <img id="hero-image" src="your-image.png" alt="カフェの画像" />
   </div>
 
-  <!-- ✅ JavaScriptで画像サイズ調整 -->
+  <!-- ✅ JavaScript：アスペクト比調整 -->
   <script>
     function adjustHeroImage() {
       const img = document.getElementById('hero-image');
@@ -49,11 +45,11 @@
       const windowAspect = window.innerWidth / window.innerHeight;
 
       if (aspectRatio > windowAspect) {
-        img.style.height = '100vh';
-        img.style.width = 'auto';
-      } else {
-        img.style.width = '100vw';
+        img.style.width = '100%';
         img.style.height = 'auto';
+      } else {
+        img.style.width = 'auto';
+        img.style.height = '100%';
       }
     }
 

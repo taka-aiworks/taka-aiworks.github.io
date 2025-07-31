@@ -15,7 +15,7 @@
     .hero {
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 9; /* ⭐ スマホ・タブレットに強い */
+      height: 100vh;
       overflow: hidden;
     }
 
@@ -23,6 +23,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center; /* 💡中心にフォーカス（必要に応じて top もあり） */
       display: block;
     }
 

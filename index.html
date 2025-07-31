@@ -4,80 +4,62 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>カフェのLP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   <style>
     * {
-      box-sizing: border-box;
-    }
-
-    html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Zen Maru Gothic', sans-serif;
-      width: 100%;
-      height: 100%;
-      overflow-x: hidden;
+      box-sizing: border-box;
     }
-
+    body {
+      font-family: 'Zen Maru Gothic', sans-serif;
+    }
     .hero {
-      position: relative;
       width: 100vw;
       height: 100vh;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
       background-color: #f9f6f2;
     }
-
     .hero img {
-      max-width: none;
-      max-height: none;
       position: absolute;
-      top: 0;
-      left: 0;
-      transform-origin: top left;
+      max-width: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ ヒーロー画像エリア -->
   <div class="hero">
-    <img src="your-image.png" alt="カフェのヒーロー画像" id="hero-image">
+    <img id="hero-img" src="your-image.png" alt="カフェの画像">
   </div>
 
-  <!-- ✅ JSでサイズ調整 -->
   <script>
-    function resizeHeroImage() {
-      const img = document.getElementById('hero-image');
-      const hero = document.querySelector('.hero');
-      const containerW = hero.offsetWidth;
-      const containerH = hero.offsetHeight;
-      const imgW = img.naturalWidth;
-      const imgH = img.naturalHeight;
+    function adjustHeroImage() {
+      const img = document.getElementById("hero-img");
+      const container = document.querySelector(".hero");
 
-      const containerRatio = containerW / containerH;
-      const imgRatio = imgW / imgH;
+      const containerRatio = container.clientWidth / container.clientHeight;
+      const imageRatio = img.naturalWidth / img.naturalHeight;
 
-      if (containerRatio > imgRatio) {
-        // 画面の方が横長 → 横幅フィット
-        img.style.width = containerW + 'px';
-        img.style.height = 'auto';
-      } else {
-        // 画面の方が縦長 → 高さフィット
-        img.style.height = containerH + 'px';
+      if (imageRatio > containerRatio) {
+        // 横長 → 高さ合わせ
+        img.style.height = '100%';
         img.style.width = 'auto';
+      } else {
+        // 縦長 → 幅合わせ
+        img.style.width = '100%';
+        img.style.height = 'auto';
       }
 
-      // センタリング
-      img.style.left = (containerW - img.offsetWidth) / 2 + 'px';
-      img.style.top = (containerH - img.offsetHeight) / 2 + 'px';
+      // 中央に寄せる
+      img.style.top = '50%';
+      img.style.left = '50%';
+      img.style.transform = 'translate(-50%, -50%)';
     }
 
-    window.addEventListener('load', resizeHeroImage);
-    window.addEventListener('resize', resizeHeroImage);
+    window.addEventListener('load', adjustHeroImage);
+    window.addEventListener('resize', adjustHeroImage);
   </script>
-
 </body>
 </html>

@@ -29,43 +29,18 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      height: 100vh;
+      width: auto;
       max-width: none;
+      max-height: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ ヒーロー画像エリア -->
   <div class="hero">
-    <img id="hero-img" src="your-image.png" alt="カフェの画像">
+    <img src="your-image.png" alt="カフェの画像">
   </div>
-
-  <!-- ✅ 自動調整スクリプト -->
-  <script>
-    function adjustHeroImage() {
-      const img = document.getElementById("hero-img");
-      const container = document.querySelector(".hero");
-
-      if (!img.complete) {
-        img.onload = () => adjustHeroImage();
-        return;
-      }
-
-      const containerRatio = container.clientWidth / container.clientHeight;
-      const imageRatio = img.naturalWidth / img.naturalHeight;
-
-      if (imageRatio > containerRatio) {
-        img.style.height = '100%';
-        img.style.width = 'auto';
-      } else {
-        img.style.width = '100%';
-        img.style.height = 'auto';
-      }
-    }
-
-    window.addEventListener('load', adjustHeroImage);
-    window.addEventListener('resize', adjustHeroImage);
-  </script>
 
 </body>
 </html>

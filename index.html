@@ -6,55 +6,77 @@
   <title>カフェのLP</title>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
+      padding: 0;
       font-family: 'Zen Maru Gothic', sans-serif;
-      overflow-x: hidden; /* 横スクロール防止 */
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
     }
 
     .hero {
       position: relative;
       width: 100vw;
       height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       overflow: hidden;
       background-color: #f9f6f2;
     }
 
     .hero img {
+      max-width: none;
+      max-height: none;
       position: absolute;
       top: 0;
       left: 0;
-      /* width/height は JS で制御 */
+      transform-origin: top left;
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ ヒーロー画像のみ -->
+  <!-- ✅ ヒーロー画像エリア -->
   <div class="hero">
-    <img id="hero-image" src="your-image.png" alt="カフェの画像" />
+    <img src="your-image.png" alt="カフェのヒーロー画像" id="hero-image">
   </div>
 
-  <!-- ✅ JavaScriptで画像サイズ調整 -->
+  <!-- ✅ JSでサイズ調整 -->
   <script>
-    function adjustHeroImage() {
+    function resizeHeroImage() {
       const img = document.getElementById('hero-image');
-      const aspectRatio = img.naturalWidth / img.naturalHeight;
-      const windowAspect = window.innerWidth / window.innerHeight;
+      const hero = document.querySelector('.hero');
+      const containerW = hero.offsetWidth;
+      const containerH = hero.offsetHeight;
+      const imgW = img.naturalWidth;
+      const imgH = img.naturalHeight;
 
-      if (aspectRatio > windowAspect) {
-        // 横が広い → 高さを合わせて横は自動
-        img.style.height = '100vh';
-        img.style.width = 'auto';
-      } else {
-        // 縦が広い → 横を合わせて高さは自動
-        img.style.width = '100vw';
+      const containerRatio = containerW / containerH;
+      const imgRatio = imgW / imgH;
+
+      if (containerRatio > imgRatio) {
+        // 画面の方が横長 → 横幅フィット
+        img.style.width = containerW + 'px';
         img.style.height = 'auto';
+      } else {
+        // 画面の方が縦長 → 高さフィット
+        img.style.height = containerH + 'px';
+        img.style.width = 'auto';
       }
+
+      // センタリング
+      img.style.left = (containerW - img.offsetWidth) / 2 + 'px';
+      img.style.top = (containerH - img.offsetHeight) / 2 + 'px';
     }
 
-    window.addEventListener('load', adjustHeroImage);
-    window.addEventListener('resize', adjustHeroImage);
+    window.addEventListener('load', resizeHeroImage);
+    window.addEventListener('resize', resizeHeroImage);
   </script>
 
 </body>

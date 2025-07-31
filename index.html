@@ -4,62 +4,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>カフェのLP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Zen Maru Gothic', sans-serif;
     }
+
     .hero {
       width: 100vw;
       height: 100vh;
       overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      position: relative;
       background-color: #f9f6f2;
     }
+
     .hero img {
       position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       max-width: none;
     }
   </style>
 </head>
 <body>
 
+  <!-- ✅ ヒーロー画像エリア -->
   <div class="hero">
     <img id="hero-img" src="your-image.png" alt="カフェの画像">
   </div>
 
+  <!-- ✅ 自動調整スクリプト -->
   <script>
     function adjustHeroImage() {
       const img = document.getElementById("hero-img");
       const container = document.querySelector(".hero");
 
+      if (!img.complete) {
+        img.onload = () => adjustHeroImage();
+        return;
+      }
+
       const containerRatio = container.clientWidth / container.clientHeight;
       const imageRatio = img.naturalWidth / img.naturalHeight;
 
       if (imageRatio > containerRatio) {
-        // 横長 → 高さ合わせ
         img.style.height = '100%';
         img.style.width = 'auto';
       } else {
-        // 縦長 → 幅合わせ
         img.style.width = '100%';
         img.style.height = 'auto';
       }
-
-      // 中央に寄せる
-      img.style.top = '50%';
-      img.style.left = '50%';
-      img.style.transform = 'translate(-50%, -50%)';
     }
 
     window.addEventListener('load', adjustHeroImage);
     window.addEventListener('resize', adjustHeroImage);
   </script>
+
 </body>
 </html>

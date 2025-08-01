@@ -3,48 +3,169 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>カフェLP</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <title>Minimal Coffee Shop</title>
 
-    body {
-      font-family: sans-serif;
-      background-color: #fff;
-      color: #333;
-    }
+  <!-- Google Fonts: Zen Maru Gothic -->
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet" />
+  
+  <!-- Google Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
-    .hero img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+  <!-- Font Awesome（未使用の場合は削除OK） -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    .main-content img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-  </style>
+  <!-- メインCSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-  <!-- ✅ ヒーロー画像のみ端末別に切り替え -->
+  <!-- Heroセクション -->
   <section class="hero">
-    <picture>
-      <source srcset="hero-mobile.png" media="(max-width: 600px)">
-      <source srcset="hero-tablet.png" media="(max-width: 1024px)">
-      <img src="hero-desktop.png" alt="ヒーロー画像">
-    </picture>
+    <div class="hero-overlay">
+      <h1>日常に、ちいさなやすらぎを。</h1>
+      <p>自家焙煎のコーヒーと 手作りの焼き菓子で、ほっとひと息つける場所。</p>
+      <p class="small-note">*All proceeds go to the San Dias Homeless Association</p>
+    </div>
   </section>
 
-  <!-- ✅ その他は1枚画像で -->
-  <section class="main-content">
-    <img src="content.png" alt="メインコンテンツ画像">
+  <!-- おすすめメニューセクション -->
+  <section class="recommend">
+    <h2>おすすめメニュー</h2>
+
+    <div class="menu-cards">
+      <!-- ショートケーキ -->
+      <div class="menu-card">
+        <img src="images/shortcake.jpg" alt="手づくりショートケーキ" />
+        <h3>手づくりショートケーキ</h3>
+        <p>季節のフルーツをたっぷり使った、<br>ふわふわの人気ケーキ。</p>
+      </div>
+
+      <!-- ガトーショコラ -->
+      <div class="menu-card">
+        <img src="images/gateau.jpg" alt="ガトーショコラ" />
+        <h3>ガトーショコラ</h3>
+        <p>濃厚なのに軽やか。<br>コーヒーと相性抜群の一品。</p>
+      </div>
+
+      <!-- クッキーセット -->
+      <div class="menu-card">
+        <img src="images/cookies.jpg" alt="クッキーセット" />
+        <h3>クッキーセット</h3>
+        <p>おやつにぴったりのクッキー3種セット。<br>お持ち帰りもOK！</p>
+      </div>
+    </div>
   </section>
+
+  <!-- Feature（こだわり紹介）セクション -->
+  <section class="feature-section">
+    <div class="feature-content">
+      <div class="feature-image">
+        <img src="images/feature.jpg" alt="手作りの焼き菓子" />
+      </div>
+      <div class="feature-text">
+        <h2>おいしい理由が<br>あります</h2>
+        <p>
+          焙煎から焼き菓子まで、すべて店内で<br>
+          丁寧に手作りしています。<br>
+          大切なひとときを、あたたかく、<br>
+          やさしい味で。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 私たちのこだわりセクション -->
+  <section class="concept-section">
+    <h2 class="section-title">私たちのこだわり</h2>
+    <div class="concept-grid">
+
+      <!-- 項目① -->
+      <div class="concept-item">
+        <img src="images/concept1.jpg" alt="クッキー" />
+        <div class="concept-text">
+          <h3>素材と手作りへの想い</h3>
+          <p>
+            小麦粉や卵も、生産者さんから直接仕入れた新鮮なものを使用。<br>
+            ひとつずつ丁寧に焼き上げ、ほっとするひとときをご提供します。
+          </p>
+        </div>
+      </div>
+
+      <!-- 項目② -->
+      <div class="concept-item">
+        <img src="images/concept2.jpg" alt="ハンドドリップ" />
+        <div class="concept-text">
+          <h3>ハンドドリップで、心をこめて。</h3>
+          <p>
+            毎日丁寧に豆を挽き、一杯ずつハンドドリップで淹れています。<br>
+            香り豊かなコーヒーで、ゆったりとした時間をお過ごしください。
+          </p>
+        </div>
+      </div>
+
+      <!-- 項目③ -->
+      <div class="concept-item">
+        <img src="images/concept3.jpg" alt="やすらぎの空間" />
+        <div class="concept-text">
+          <h3>ほっとひと息、やすらぎの空間。</h3>
+          <p>
+            木のぬくもりを感じられる静かな店内で、<br>
+            ひとりでも、誰かとでも、心地よい時間をお楽しみください。
+          </p>
+        </div>
+      </div>
+
+      <!-- 項目④ -->
+      <div class="concept-item">
+        <img src="images/concept4.jpg" alt="季節の味" />
+        <div class="concept-text">
+          <h3>季節のめぐりを、おいしさで感じて。</h3>
+          <p>
+            旬の素材を使った季節限定メニューをご用意しています。<br>
+            その時だけの味わいを、ぜひお楽しみください。
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <!-- メッセージ -->
+      <div class="footer-message">
+        <p>やさしい時間をお届けするために、<br>今日も心をこめて。</p>
+      </div>
+
+      <!-- SNS・連絡先など -->
+      <div class="footer-info">
+        <p>FOLLOW US ON SOCIAL MEDIA</p>
+
+        <!-- SNSアイコン -->
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <span class="material-icons">facebook</span>
+          </a>
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+            <span class="material-icons">photo_camera</span>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <span class="material-icons">share</span>
+          </a>
+        </div>
+
+        <!-- 連絡先情報 -->
+        <div class="contact-info">
+          <p><strong>CAFE ADDRESS</strong><br>東京都〇〇区〇〇 1-2-3</p>
+          <p><strong>CONTACT</strong><br>cafe@example.com</p>
+          <p><strong>PHONE NUMBER</strong><br>03-1234-5678</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>

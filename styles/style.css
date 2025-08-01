@@ -13,7 +13,7 @@ html, body {
    🖼️ ヒーローセクション：背景画像の設定
 ==================================== */
 .hero {
-  background-image: url('images/hero.jpg');       /* 使用する背景画像のパス */
+  background-image: url('../images/hero.jpg');       /* 使用する背景画像のパス */
   background-size: cover;                         /* 画面いっぱいに拡大（はみ出しOK） */
   background-position: center center;             /* 中央に配置 */
   background-repeat: no-repeat;                   /* 画像の繰り返しなし */
